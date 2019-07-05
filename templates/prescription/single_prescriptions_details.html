@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Single Prescription{% endblock %}
+
+{% block content %}
+    <hr>
+
+    <h1 style="color: purple">Single Prescription Details</h1>
+    <hr>
+
+    <h4>ID: <strong style="color: red">{{ single_prescriptions_details.id }}</strong></h4>
+    <br>
+    <h3>Patient Name: <strong style="color: blue">{{ single_prescriptions_details.patient_name }}</strong></h3>
+    <h3>Patient Age: <strong style="color: blue">{{ single_prescriptions_details.patient_age }}</strong></h3>
+    <h3>Patient Gender: <strong style="color: blue">{{ single_prescriptions_details.patient_gender }}</strong></h3>
+    <h3>Diagnosis: <strong style="color: blue">{{ single_prescriptions_details.diagnosis }}</strong></h3>
+    <h3>Medicines: <strong style="color: blue">{{ single_prescriptions_details.medicines }}</strong></h3>
+    <h3>Prescription Date: <strong style="color: blue">{{ single_prescriptions_details.prescription_date }}</strong></h3>
+    <h3>Next Visit Date: <strong style="color: blue">{{ single_prescriptions_details.next_visit_date }}</strong></h3>
+    <br>
+    <h3>Managed By: <strong style="color: red">{{ single_prescriptions_details.user.username }}</strong></h3>
+    <hr>
+
+    <a href="{% url 'prescription:filtered-prescriptions' id=request.user.id %}">
+        <button type="button" class="btn btn-success">Back To Dashboard</button>
+    </a>
+
+    <a href="{% url 'prescription:edit' single_prescriptions_details.id %}">
+        <button type="button" class="btn btn-danger">Edit</button>
+    </a>
+
+    <a href="{% url 'prescription:delete' single_prescriptions_details.id %}">
+        <button type="button" class="btn btn-danger">Delete</button>
+    </a>
+
+    <br>
+    <hr>
+
+{% endblock %}

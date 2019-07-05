@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Prescription{% endblock %}
+
+{% block content %}
+    <hr>
+    <h1>Add Prescription</h1>
+    <hr>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <hr>
+        <button type="submit" class="btn btn-success">ADD</button>
+        <hr>
+        <br>
+    </form>
+
+{% endblock %}
+
+
